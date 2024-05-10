@@ -1,0 +1,23 @@
+name: pos-tech
+channels:
+  - defaults
+dependencies:
+  - python>=3.6
+  - streamlit
+  - plotly
+  - tqdm
+  - pandas
+  - numpy
+  - altair
+  - pip
+  - pip:
+     - -e .  # install git checkout of streamlit-demo in editable mode
+     - pydriller
+  # DEVELOPMENT ONLY PACKAGES (could also be kept in a separate environment file)
+  - jupyterlab
+  - pytest
+  - pytest-cov
+  - pre_commit
+  - nbdime
+  - sphinx
+  - recommonmark
