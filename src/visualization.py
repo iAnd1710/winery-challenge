@@ -89,7 +89,7 @@ def visual_two_bar(df: pd.DataFrame, config: dict) -> None:
         xaxis={"title": "Ano de Referência" if group == "year" else "Década"},
         yaxis={"title": "Valor Total Exportado (US$)"},
         hovertemplate=hovertemplate,
-        marker_color="#794A9E"
+        marker_color="#7B0323"
     )
 
     return fig
@@ -141,7 +141,7 @@ def visual_three_bar(df: pd.DataFrame, config: dict) -> None:
         hovertemplate=layout_info_selected["hovertemplate"],
         title_text=layout_info_selected["title"],
         title_sup=layout_info_selected["sup"],
-        marker_color="#794A9E"
+        marker_color="#7B0323"
     )
     
     return fig
@@ -244,7 +244,7 @@ def visual_five_map(df: pd.DataFrame, config: dict) -> None:
             .agg({col_name: "sum"})
             .reset_index()
             .sort_values(by=col_name, ascending=False)
-            .head(3)
+            .head(5)
         )
         list_selected = df_list_country["country"].tolist()
 
@@ -322,7 +322,7 @@ def visual_six_bar(df: pd.DataFrame, config: dict) -> None:
         titlex = "Ano de Referência"
         title = "Preço mediano por litro por Ano"
         title_sup = "Gráfico de Linha exibindo o preço mediano por litro de vinho exportado (em US$) ao longo do tempo"
-        line_color = "#794A9E"
+        line_color = "#7B0323"
         marker_color = ""
     else:
         df_aux = (
@@ -338,7 +338,7 @@ def visual_six_bar(df: pd.DataFrame, config: dict) -> None:
         title = "Preço mediano por litro (US$) por Região"
         title_sup = "Gráfico de Linha exibindo o preço total mediano por litro de vinho exportado (em US$) para cada região do mundo"
         line_color = ""
-        marker_color = "#794A9E"
+        marker_color = "#7B0323"
 
     utils.layout_graphs(
         fig,

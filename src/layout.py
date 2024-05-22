@@ -116,7 +116,7 @@ def l_visual_five_map(df: pd.DataFrame) -> None:
                 ("Valor Exportado", "Litros Exportados"),
                 key="metric_visual_five_map",
             )
-            viz = st.selectbox("Visualização", ("Top 3 Países", "Customizar"), key="viz_visual_five_map")
+            viz = st.selectbox("Visualização", ("Top 5 Países", "Customizar"), key="viz_visual_five_map")
             
             var = {"Valor Exportado": "value", "Litros Exportados": "liters"}
             col_name = var[metric]

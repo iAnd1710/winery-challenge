@@ -5,6 +5,8 @@ from src import utils
 utils.config_streamlit()
 df = utils.load_data_espumante()
 
+df = df.query('year > 1989')
+
 tabs = st.tabs(["Introdução", "Tabela", "Gráficos"])
 
 with tabs[0]:
