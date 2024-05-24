@@ -234,6 +234,8 @@ def tab_intro(df: pd.DataFrame) -> None:
         """
     )
     st.dataframe(visualization.table_info(df), use_container_width=True)
+    st.dataframe(visualization.table_info_top(df), use_container_width=True)
+
 
     return None
 

@@ -64,6 +64,19 @@ def table_info(df: pd.DataFrame) -> pd.DataFrame:
         pl.col("value").alias("Valor Total Exportado (US$)"),
     )
 
+def table_info_top(df: pd.DataFrame) -> pd.DataFrame:
+    df = table_info(df)
+
+    df = df.to_pandas()
+
+    grouped_df = df.groupby(["País de Destino"])
+    grouped_df = grouped_df.agg({"Quantidade de Vinho Exportado (Litros)": "sum", "Valor Total Exportado (US$)": "sum"})
+
+    sorted_df = grouped_df.sort_values(by=["Quantidade de Vinho Exportado (Litros)", "Valor Total Exportado (US$)"], ascending=False)
+
+    top_10_df = sorted_df.head(10)
+    return top_10_df
+
 def visual_two_bar(df: pd.DataFrame, config: dict) -> None:
    
     if not config['decade']:
