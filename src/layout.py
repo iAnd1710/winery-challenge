@@ -14,11 +14,6 @@ def l_visual_two_bar(df: pd.DataFrame) -> None:
             decade = st.checkbox("Agrupar por Década", key="decade_visual_two_bar")
         
         config_graph["decade"] = decade
-        
-        # Assuming l_description is a custom function for displaying descriptions
-        l_description(
-            "Texto de análise"      
-        )
             
     with cols[0]:
         
@@ -50,9 +45,6 @@ def l_visual_three_bar(df: pd.DataFrame) -> None:
         config_graph["metric"] = metric
         config_graph["agg"] = agg
         
-        l_description(
-            "Texto de análise"      
-        )
         
     with cols[0]:
         
@@ -89,10 +81,6 @@ def l_visual_four_map(df: pd.DataFrame) -> None:
         config_graph["metric"] = metric
         config_graph["agg"] = agg
         config_graph["year"] = year
-
-        l_description(
-            "Texto de análise"      
-        )
             
     with cols[0]:
         
@@ -136,10 +124,6 @@ def l_visual_five_map(df: pd.DataFrame) -> None:
         config_graph["metric"] = metric
         config_graph["viz"] = viz
         config_graph["col_name"] = col_name
-        
-        l_description(
-            "Texto de análise"      
-        )
             
     with cols[0]:
         
@@ -161,32 +145,11 @@ def l_visual_six_bar(df: pd.DataFrame) -> None:
             median_region = st.checkbox("Ver Preço mediano total por Região", key="median_region_visual_six_bar")
         
         config_graph["median_region"] = median_region
-        
-        l_description(
-            "Texto de análise"      
-        )
             
     with cols[0]:
         
         fig = visualization.visual_six_bar(df, config_graph)
         st.plotly_chart(fig, use_container_width=True)
-
-    return None
-
-def l_description(text: str) -> None:
-    st.markdown(
-        f"""
-        <div style="background: #f8f8f8; padding: 20px 25px 10px 20px; border-radius: 5px; border: 1px solid #ddd; margin-bottom: 100px">
-            <p style="text-align: left; font-size:13px; color: #bbb">
-                Análise
-            </p>
-            <p style="text-align: left;">
-                {text}
-            </p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
 
     return None
 

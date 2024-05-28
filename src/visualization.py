@@ -69,10 +69,13 @@ def table_info_top(df: pd.DataFrame) -> pd.DataFrame:
 
     df = df.to_pandas()
 
-    grouped_df = df.groupby(["País de Destino"])
-    grouped_df = grouped_df.agg({"Quantidade de Vinho Exportado (Litros)": "sum", "Valor Total Exportado (US$)": "sum"})
+    df = df.query('`Ano de Referência` > 2007')
 
-    sorted_df = grouped_df.sort_values(by=["Quantidade de Vinho Exportado (Litros)", "Valor Total Exportado (US$)"], ascending=False)
+    print(df.info())
+    grouped_df = df.groupby(["País de Destino"])
+    grouped_df = grouped_df.agg({"Valor Total Exportado (US$)": "sum", "Quantidade de Vinho Exportado (Litros)": "sum"})
+
+    sorted_df = grouped_df.sort_values(by=["Valor Total Exportado (US$)", "Quantidade de Vinho Exportado (Litros)"], ascending=False)
 
     top_10_df = sorted_df.head(10)
     return top_10_df
